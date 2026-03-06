@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSWDO Profiling</title>
+    <link rel="stylesheet" href="profilestyle.css">
+</head>
+<body>
+
+<div class="header">
+
+     <div class="header-left">
+        <img src="cswd.png">
+        <h2>CSWDO - Binan City</h2>
+    </div>
+
+    <h3>Aruga Project Profiling and Assessment Details</h3>
+
+    <div class="dropdown">
+        <button class="dropbtn" onclick="toggleMenu()">Username ▼</button>
+
+        <div id="dropdownMenu" class="dropdown-content">
+            <a href="#">Profile</a>
+            <a href="#" class="logout">Logout</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+<div class="container-right">
+            <button class="update-btn" onclick="saveData()">UPDATE</button>
+            <button class="delete-btn" onclick="openModal()">DELETE</button>
+        </div>
+
+    <!-- TOP ROW -->
+<div class="top-row">
+
+    <div class="field-group">
+        <label>Date of Interview:</label>
+        <input type="date" id="dateInterview">
+    </div>
+
+
+     <div class="field-group">
+        <label>Time Started:</label>
+        <input type="time" id="timeStart">
+    </div>
+
+
+    <div class="field-group">
+        <label>Time Ended:</label>
+        <input type="time" id="timeEnd">
+    </div>
+
+</div>
+<div class="info-section">
+
+<div class="form-row">
+    <label>Name of Interviewer:</label>
+    <input type="text" class="line-input">
+</div>
+
+<div class="form-row">
+    <label>Household ID No.:</label>
+    <input type="text" class="line-input">
+</div>
+
+<div class="form-row">
+    <label>Region:</label>
+    <input type="text" class="line-input">
+</div>
+
+<div class="form-row">
+    <label>Pantawid Member?</label>
+    <input type="text" class="line-input">
+</div>
+
+<div class="form-row">
+    <label>Province:</label>
+    <input type="text" class="line-input">
+</div>
+
+<div class="form-row">
+    <label>Name of Respondent:</label>
+    <input type="text" class="line-input">
+</div>
+
+<div class="form-row">
+    <label>Address:</label>
+    <input type="text" class="line-input">
+</div>
+
+</div>
+
+
+
+<div class="section-title">CHILD WITH DISABILITY PROFILE</div>
+
+<table class="profile-table">
+
+    <!-- R1 to R4 (NO CODE COLUMN) -->
+    <tr>
+        <td class="r-col">R1.</td>
+        <td class="label-col">Name:</td>
+        <td class="input-col"><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>R2.</td>
+        <td>Address:</td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>R3.</td>
+        <td>Contact Number:</td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>R4.</td>
+        <td>Date of Birth:</td>
+        <td><input type="date"></td>
+    </tr>
+
+    <!-- R5 to R10 (WITH CODE COLUMN) -->
+    <tr>
+    <td>R5.</td>
+    <td>Religion:</td>
+    <td><input type="text"></td>
+    <td class="code-col">
+        Code: <input type="text" class="code-input">
+    </td>
+</tr>
+
+<tr>
+    <td>R6.</td>
+    <td>IP Membership:</td>
+    <td><input type="text"></td>
+    <td class="code-col">
+        Code: <input type="text" class="code-input">
+    </td>
+</tr>
+
+<tr>
+    <td>R7.</td>
+    <td>Sex:</td>
+    <td><input type="text"></td>
+    <td class="code-col">
+        Code: <input type="text" class="code-input">
+    </td>
+</tr>
+
+<tr>
+    <td>R8.</td>
+    <td>Highest Educational Attainment:</td>
+    <td><input type="text"></td>
+    <td class="code-col">
+        Code: <input type="text" class="code-input">
+    </td>
+</tr>
+
+<tr>
+    <td>R9.</td>
+    <td>Disability / Special Needs:</td>
+    <td><input type="text"></td>
+    <td class="code-col">
+        Code: <input type="text" class="code-input">
+    </td>
+</tr>
+
+<tr>
+    <td>R10.</td>
+    <td>Critical Illness:</td>
+    <td><input type="text"></td>
+    <td class="code-col">
+        Code: <input type="text" class="code-input">
+    </td>
+</tr>
+
+</table>
+<div class="family-size">
+    <label>H1. Bilang ng Miyembro (Family Size):</label>
+    <input type="number" class="family-size-input">
+</div>
+
+<div class="section-title">FAMILY PROFILE</div>
+
+<table class="family-table">
+
+    <tr>
+        <th style="width:40px;"></th>
+        <th>H2. Name</th>
+        <th>H3. Relationship to the Head of the Family</th>
+        <th>H4. Civil Status</th>
+        <th>H5. Age</th>
+        <th>H6. Sex</th>
+        <th>H7. Occupation</th>
+        <th>H8. Occupation Class</th>
+        <th>H9. Disability / Special Needs</th>
+        <th>H10. Critical Illness</th>
+        <th>H11. Solo Parent</th>
+    </tr>
+
+    <!-- ROWS -->
+    <!-- Repeat 7 rows -->
+    <tr>
+        <td>1.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>2.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>3.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>4.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>5.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>6.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>7.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+     <tr>
+        <td>8.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+     <tr>
+        <td>9.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+     <tr>
+        <td>10.</td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+
+
+
+
+</table>
+
+</div>
+
+<script>
+function toggleMenu() {
+    var menu = document.getElementById("dropdownMenu");
+
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+}
+</script>
+
+<script>
+
+function saveData(){
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(input=>{
+        localStorage.setItem(input.id, input.value);
+    });
+    alert("Record Updated Successfully!");
+}
+
+window.onload = function(){
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(input=>{
+        input.value = localStorage.getItem(input.id) || "";
+    });
+}
+
+function openModal(){
+    document.getElementById("deleteModal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("deleteModal").style.display="none";
+}
+
+function confirmDelete(){
+    localStorage.clear();
+    alert("Record Deleted Successfully!");
+    location.reload();
+}
+
+</script>
+
+</script>
+
+<!-- DELETE POPUP -->
+<div id="deleteModal" class="modal">
+    <div class="modal-box">
+        <p>Are you sure you want to<br>delete the record?</p>
+
+        <div class="modal-buttons">
+            <button class="yes-btn" onclick="confirmDelete()">Yes</button>
+            <button class="no-btn" onclick="closeModal()">No</button>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>2026 CSWDO - Biñan City</p>
+</footer>
+
+</body>
+</html>
