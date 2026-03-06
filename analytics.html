@@ -22,10 +22,21 @@
             <button class="btn" style="color: white; background:none;">Username &#9662;</button>
             <div class="dropdown-content user-dropdown">
                 <a href="#" style="display:block; padding: 8px; text-decoration:none; color:#333;">Profile</a>
-                <a href="#" style="display:block; padding: 8px; text-decoration:none; color:red; border-top: 1px solid #eee;">Logout</a>
+                <a href="#" id="logoutBtn" style="display:block; padding: 8px; text-decoration:none; color:red; border-top: 1px solid #eee;">Logout</a>
             </div>
         </div>
     </header>
+
+        <!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal-overlay">
+    <div class="modal-box">
+        <p>Are you sure you want to logout?</p>
+        <div class="modal-buttons">
+            <button id="confirmLogout" class="modal-btn yes">YES</button>
+            <button id="cancelLogout" class="modal-btn no">NO</button>
+        </div>
+    </div>
+</div>
 
     <div class="action-bar">
         <button class="btn btn-filter">

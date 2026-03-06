@@ -20,10 +20,21 @@
 
         <div id="dropdownMenu" class="dropdown-content">
             <a href="#">Profile</a>
-            <a href="#" class="logout">Logout</a>
+            <a href="#" id="logoutBtn" class="logout">Logout</a>
         </div>
     </div>
 
+</div>
+
+        <!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal-overlay">
+    <div class="modal-box">
+        <p>Are you sure you want to logout?</p>
+        <div class="modal-buttons">
+            <button id="confirmLogout" class="modal-btn yes">YES</button>
+            <button id="cancelLogout" class="modal-btn no">NO</button>
+        </div>
+    </div>
 </div>
 
 <div class="container">
@@ -394,6 +405,27 @@ function confirmDelete(){
     location.reload();
 }
 
+// LOGOUT MODAL
+    const logoutBtn = document.getElementById("logoutBtn");
+    const logoutModal = document.getElementById("logoutModal");
+    const confirmLogout = document.getElementById("confirmLogout");
+    const cancelLogout = document.getElementById("cancelLogout");
+
+    // Show popup
+    logoutBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        logoutModal.classList.add("show");
+    });
+
+    // YES → go to login.html
+    confirmLogout.addEventListener("click", function(){
+        window.location.href = "login.html";
+    });
+
+    // NO → close popup
+    cancelLogout.addEventListener("click", function(){
+        logoutModal.classList.remove("show");
+    });
 </script>
 
 </script>
