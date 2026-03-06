@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSWDO - Binan City Database</title>
+    <link rel="stylesheet" href="analyticsStyleSheet.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+</head>
+<body>
+
+<div class="page-container">
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-box">
+                <img src="images.png" alt="Logo" onerror="this.style.display='none'">
+            </div>
+            <span class="header-title"><b>CSWDO - Binan City</b></span>
+        </div>
+        
+        <div class="dropdown">
+            <button class="btn" style="color: white; background:none;">Username &#9662;</button>
+            <div class="dropdown-content user-dropdown">
+                <a href="#" style="display:block; padding: 8px; text-decoration:none; color:#333;">Profile</a>
+                <a href="#" style="display:block; padding: 8px; text-decoration:none; color:red; border-top: 1px solid #eee;">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="action-bar">
+        <button class="btn btn-filter">
+            <img src="back.png" alt="backbutton" class="back-Icon">
+        </button>
+    <div class="dropdown">
+        <button class="btn btn-paper" onclick="myFunction()">A4 Paper</button>
+            <div class = "paper-choice-dropdown" id="myDropdown">
+                <a href="#" style="display:block; padding: 8px; text-decoration:none; color:#333;">A4 Paper</a>
+                <a href="#" style="display:block; padding: 8px; text-decoration:none; color:#333;">Legal Paper</a>
+                <a href="#" style="display:block; padding: 8px; text-decoration:none; color:#333;">Letter Paper</a>
+            </div>
+    </div>
+        <button class="btn btn-print">Print Report</button>
+    </div>
+
+    <div class="main-paper-container">
+        <div class="Analytics-paper-container">
+            <div class="Analytics-paper">
+                <h2>Analytics Paper</h2>
+                <p>Content for the analytics paper goes here.</p>
+                <div class="Pie-graph-container">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; margin-left: 25px;">Overall Result</h2>
+                    <div class="piechart-main-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="background-color: #FF6384; color: white; padding: 10px;">Barangay</th>
+                                    <th style="background-color: #36A2EB; color: white; padding: 10px;">Overall Population</th>
+                                    <th style="background-color: #FFCE56; color: white; padding: 10px;">Male</th>
+                                    <th style="background-color: #4BC0C0; color: white; padding: 10px;">Female</th> 
+                                    <th style="background-color: #4BC0C0; color: white; padding: 10px;">Disability</th>
+                                    <th style="background-color: #4BC0C0; color: white; padding: 10px;">Critical Illnesses</th>       
+                                </tr>
+                            </thead>
+                            <tbody id = "data-table">
+                                <tr><td>Biñan</td><td>60%</td><td>20%</td><td>10%</td><td>Physical</td><td>Cancer</td>
+                                <tr><td>Bungahan</td><td>60%</td><td>20%</td><td>10%</td><td>Physical</td><td>Cancer</td>
+                                <tr><td>Canlalay</td><td>60%</td><td>20%</td><td>10%</td><td>Physical</td><td>Cancer</td>
+                                <tr><td>Casile</td><td>60%</td><td>20%</td><td>10%</td><td>Physical</td><td>Cancer</td>
+                                <tr><td>Dela Paz</td><td>60%</td><td>20%</td><td>10%</td><td>Physical</td><td>Cancer</td>
+                                <tr><td>Ganado</td><td>60%</td><td>20%</td><td>10%</td><td>Physical</td><td>Cancer</td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="Pie-graph-container">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; margin-left: 25px;">Religion</h2>
+                    <div class="piechart-main-container">
+                        <div class="pie-chart"></div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="dot" style="background-color: #FF6384;"></span>
+                                <span class="label-text">Catholic (20)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="dot" style="background-color: #36A2EB;"></span>
+                                <span class="label-text">Islam (20)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="dot" style="background-color: #FFCE56;"></span>
+                                <span class="label-text">INC (20)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group-container">
+            <div class = "filter-header-icons">
+                <button class="btn btn-filter" onclick="toggleFilter()" style="background-color: #512da8; color: white;">
+                <img src="back.png" alt="back" class="back-Icon" style="filter: brightness(0) invert(1);"> 
+                <span style="font-size: 15px;">⚙ FILTER</span>
+                </button>
+            </div>
+            <div class="filter-category">
+                <div class="category-header">
+                    <span class="Gender-header">Gender</span>
+                    <span class="category-indicator">▼</span>
+                </div>
+                <div class="category-checklist" id="genderChecklist">
+                    <div class="checkbox-item"><input type="checkbox" id="female"><label for="female">Female</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="male"><label for="male">Male</label></div>
+                </div>
+            </div>
+
+            <div class="filter-category">
+                <div class="category-header">
+                    <span class="Barangay-header">Barangay</span>
+                    <span class="category-indicator">▼</span>
+                </div>
+                <div class="category-checklist" id="barangayChecklist">
+                    <div class="checkbox-item"><input type="checkbox" id="b-1"><label for="b-1">Biñan</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-2"><label for="b-2">Bungahan</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-3"><label for="b-3">Canlalay</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-4"><label for="b-4">Casile</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-5"><label for="b-5">Dela Paz</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-6"><label for="b-6">Ganado</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-7"><label for="b-7">Langkiwa</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-8"><label for="b-8">Loma</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-9"><label for="b-9">Malaban</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-10"><label for="b-10">Malamig</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-11"><label for="b-11">Mampalasan</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-12"><label for="b-12">Platero</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-13"><label for="b-13">Poblacion</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-14"><label for="b-14">San Antonio</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-15"><label for="b-15">San Francisco</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-16"><label for="b-16">San Jose</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-17"><label for="b-17">San Vicente</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-18"><label for="b-18">Santo Domingo</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-19"><label for="b-19">Santo Niño</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-20"><label for="b-20">Santo Tomas</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-21"><label for="b-21">Soro-Soro</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-22"><label for="b-22">Timbao</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-23"><label for="b-23">Tubigan</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="b-24"><label for="b-24">Zapote</label></div>
+                </div>
+            </div>
+
+            <div class="filter-category">
+                <div class="category-header">
+                    <span class="religion-header">Religion</span>
+                    <span class="category-indicator">▼</span>
+                </div>
+                <div class="category-checklist" id="religionChecklist">
+                    <div class="checkbox-item"><input type="checkbox" id="rel-1"><label for="rel-1">0 None</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-2"><label for="rel-2">1 Roman Catholic</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-3"><label for="rel-3">2 Islam</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-4"><label for="rel-4">3 Iglesia ni Cristo</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-5"><label for="rel-5">4 Aglipay</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-6"><label for="rel-6">5 Seventh Day Adventist</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-7"><label for="rel-7">6 Bible Baptist Church</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-8"><label for="rel-8">7 Jehovah's Witness</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-9"><label for="rel-9">8 United Methodists Church</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-10"><label for="rel-10">9 Tribal Religions</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="rel-11"><label for="rel-11">10 Others</label></div>
+                </div>
+            </div>
+
+            <div class="filter-category">
+                <div class="category-header">
+                    <span class="disability-header">Disability/Special Needs</span>
+                    <span class="category-indicator">▼</span>
+                </div>
+                <div class="category-checklist" id="disabilityChecklist">
+                    <div class="checkbox-item"><input type="checkbox" id="dis-1"><label for="dis-1">0 None</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-2"><label for="dis-2">1 Physical</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-3"><label for="dis-3">2 Intellectual</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-4"><label for="dis-4">3 Learning</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-5"><label for="dis-5">4 Visual</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-6"><label for="dis-6">5 Mental</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-7"><label for="dis-7">6 Psychosocial</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-8"><label for="dis-8">7 Deaf/Hard of Hearing</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-9"><label for="dis-9">8 Speech and Language Impairment</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-10"><label for="dis-10">9 Cancer</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="dis-11"><label for="dis-11">10 Rare Diseases</label></div>
+                </div>
+            </div>
+
+            <div class="filter-category">
+                <div class="category-header">
+                    <span class="illness-header">Critical Illness</span>
+                    <span class="category-indicator">▼</span>
+                </div>
+                <div class="category-checklist" id="illnessChecklist">
+                    <div class="checkbox-item"><input type="checkbox" id="ill-1"><label for="ill-1">0 None</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="ill-2"><label for="ill-2">1 Cancer</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="ill-3"><label for="ill-3">2 Cardio-vascular Disease</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="ill-4"><label for="ill-4">3 Paralysis</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="ill-5"><label for="ill-5">4 Organ Failure</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="ill-6"><label for="ill-6">5 Others</label></div>
+                </div>
+            </div>
+
+            <div class="filter-category">
+                <div class="category-header">
+                    <span class="illness-header">IP Membership</span>
+                    <span class="category-indicator">▼</span>
+                </div>
+                    <div class="category-checklist" id="ipChecklist">
+                        <div class="checkbox-item"><input type="checkbox" value="None2" id="relNone2"><label for="relNone2">Non-IP</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Aeta" id="aeta"><label for="aeta">Aeta</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Ati" id="ati"><label for="ati">Ati</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Badjao" id="badjao"><label for="badjao">Badjao</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Bago" id="bago"><label for="bago">Bago</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Batak" id="batak"><label for="batak">Batak</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Bukidnon" id="bukidnon"><label for="bukidnon">Bukidnon</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="B'laan" id="b'laan"><label for="b'laan">B'laan</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Cimaron" id="cimaron"><label for="cimaron">Cimaron</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Cayonen" id="cayonen"><label for="cayonen">Cayonen</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Dumagat" id="dumagat"><label for="dumagat">Dumagat</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Ibaloi" id="ibaloi"><label for="ibaloi">Ibaloi</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Ibanag" id="ibanag"><label for="ibanag">Ibanag</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Itom" id="itom"><label for="itom">Itom</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Kankanaey" id="kankanaey"><label for="kankanaey">Kankanaey</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Mandaya" id="mandaya"><label for="mandaya">Mandaya</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Mangyan" id="mangyan"><label for="mangyan">Mangyan</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Manobo" id="manobo"><label for="manobo">Manobo</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Palawano" id="palawano"><label for="palawano">Palawano</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Pullon" id="pullon"><label for="pullon">Pullon</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Subanen" id="subanen"><label for="subanen">Subanen</label></div>
+                        <div class="others-row">
+                    </div>
+            </div>
+
+            <div class="filter-footer">
+                <button class="btn-clear-all" onclick="clearCheckListFunction()">Clear All</button>
+                <button class="btn-apply" id="applyFilterBtn">Apply</button>
+            </div> 
+        </div>
+    </div>
+</div>
+    </div>
+
+<script src = "analyticsFunction.js"></script>
+</script>
+</body>
+</html>
+ 
