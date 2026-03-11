@@ -1,6 +1,8 @@
 // firebase-config.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+// 1. Add the Firestore import
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -16,9 +18,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-
-// Initialize Authentication and get a reference to the service
+// Initialize Authentication 
 const auth = getAuth(app);
 
-// Export the auth object so other files can import it
-export { auth };
+// 2. Initialize Firestore Database
+const db = getFirestore(app);
+
+// 3. Export BOTH auth and db so your other files can use them
+export { auth, db };
