@@ -39,7 +39,7 @@ async function loadTableData() {
                 <td>${formattedDOB}</td>
                 <td>${child.sex || 'N/A'}</td>
                 <td>${child.contact_number || 'N/A'}</td>
-                <td>N/A</td> <td>${fullAddress}</td>
+                <td>${fullAddress}</td>
                 <td>${child.religion || 'N/A'}</td>
                 <td>${child.ip_membership || 'N/A'}</td>
                 <td>${child.disability_special_needs || 'N/A'}</td>
@@ -60,5 +60,5 @@ async function loadTableData() {
     }
 }
 
-// Run the function on load
 loadTableData();
+// Run the function on load
