@@ -28,8 +28,8 @@ async function loadTableData() {
             }
 
             // Combine address and barangay if available
-            let fullAddress = data.address || 'N/A';
-            if (data.barangay && fullAddress === 'N/A') fullAddress = data.barangay;
+            let fullAddress = data.barangay || 'N/A';
+          
 
             const tr = document.createElement("tr");
             
