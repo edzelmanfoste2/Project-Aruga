@@ -466,41 +466,27 @@
 <input type="radio" name="d8"> Not Applicable
 
 
-
-<p class="question">
-
-    
-</p>
-
-<input type="radio" name="d8"> a. Yes. Specify:
-<input type="text" name="code-box">
-<p></p>
-<input type="radio" name="d8"> No
-<p></p>
-<input type="radio" name="d8"> Not Applicable
-
-
 <h3>C. Learning Materials</h3>
 
 <p class="question">
 <h4>5. Are there accessible learning materials availble for the child (braille, audio books, etc.)?</h4>
-<input type="radio" name="d9"> Yes, Speicfy: 
+<input type="radio" name="d10"> Yes, Speicfy: 
 <input type="text" name="code-box">
 </p>
-<input type="radio" name="d9"> No
+<input type="radio" name="d10"> No
 <p></p>
-<input type="radio" name="d8"> Not Applicable
+<input type="radio" name="d10"> Not Applicable
 
 
 
 <p class="question">
 <h4>6. Does the child have access to assistive technology (hearing aids, communication devices, etc)?</h4>
-<input type="radio" name="d9"> Yes, Specify: 
+<input type="radio" name="e1"> Yes, Specify: 
 <input type="text" name="code-box">
 </p>
-<input type="radio" name="d9"> No
+<input type="radio" name="e1"> No
 <p></p>
-<input type="radio" name="d8"> Not Applicable
+<input type="radio" name="e1"> Not Applicable
 
 </div>
 
@@ -517,6 +503,108 @@
 
 <input type="text" class="line-input" name="income_source">
 
+<p class="question">
+    <h4>2. How much is the approximate monthly income of the family?</h4>
+    <input type="checkbox" name="e4">Below minimum wage
+    <p></p>
+    <input type="checkbox" name="e4">Minimum Wage
+    <p></p>
+    <input type="checkbox" name="e4>">Above minimum Wage
+</p>
+
+<h3>B. Employment</h3>
+
+<p class="question">
+    <h4>3. Are the parents/guardians employed or have entrepreneurial activities?</h4>
+    <input type="radio" name="e5">Yes
+    <p></p>
+    <p>Specify:
+    <input type="text" class="line-input" name="employment1"></p>
+    <p></p>
+    <input type="radio" name="e5">No
+    <p>If not what is the reason for unemployment</p>
+    <input type="checkbox" name="e6">Lack of Skills
+    <p></p>
+    <input type="checkbox" name="e7">Health Reasons
+    <p></p>
+    <input type="checkbox" name="e8">Caregiving Responsibilities
+    <p></p>
+    <input type="checkbox" id="othersCheckbox" name="e9">Others. Specify
+    <input type="text" id="othersInput"class="line-input" name="employment">
+</p>
+</div>
+
+<div class="section-title">V. Service Availment</div>
+
+
+<div class="form-section">
+
+<h3>A. Social Services</h3>
+
+<p class="question">
+    <h4>1. Does the family receive any form of financial assistance (government subsidies, medical assistance)?</h4>
+    <input type="radio" name="f1">Yes. 
+    <p></p>
+    <p>Specify
+    <input type="text" class="line-input" name="social service">
+    </p>
+    <p></p>
+    <input type="radio" name="f1">No
+</p>
+
+<p class="question">
+    <h4>2. Is the family aware of available social services for children with disabilities?</h4>
+    <input type="radio" name="f2">Yes
+    <p></p>
+    <p>Specify
+        <input type="text" class="line-input" name="social service1">
+    </p>
+    <input type="radio" name="f2">No
+</p>
+
+<p class="question">
+<h4>3. Has the family availed of any services (therapy, financial support, special education programs, etc.)</h4>
+<input type="radio" name="f3">Yes
+<p></p>
+<p>Specify:
+    <input type="text" class="line-input" name="social service2">
+</p>
+<input type="radio" name="f3">No
+</p>
+
+<h3>B. Barriers to Service Availment</h3>
+
+<p class="question">
+    <h4>4. What are the challenges faced in availing these services?</h4>
+    <input type="checkbox" name="g1">Lack of Information
+    <p></p>
+    <input type="checkbox" name="g2">Distance and transformation
+    <p></p>
+    <input type="checkbox" name="g3">Financial Constraints
+    <p></p>
+    <input type="checkbox" name="g4">Prejudice and Descrimination
+    <p></p>
+    <input type="checkbox" id="othersCheckbox" name="g5">Others, Specify: 
+    <input type="text" id="othersInput" class="line-input" name="availment">
+
+</p>
+
+</div>
+
+<div class="section-title">VI. General Observations and Recommendations</div>
+
+<div class="form-section">
+    <p class="question">
+        <h4>A. Strengths: (e.g., supportive family, strong community network</h4>
+        <input type="text" class="line-input" name="strengths">
+
+        <h4>B. Assessment:</h4>
+        <input type="text " class="line-input" name="assessment">
+
+        <h4>C. Recommended Actions/Interventions</h4>
+        <input type="text" class="line-input" name="recommended">
+    </p>
+</div>
 
 </div>
 
@@ -537,6 +625,24 @@ function toggleMenu() {
  <div class="submit-container">
     <button type="submit" class="submit-btn">SUBMIT</button>
 </div>
+
+<script>
+const checkbox = document.getElementById("othersCheckbox");
+const input = document.getElementById("othersInput");
+
+input.addEventListener("input", function() {
+    if (input.value.trim() !== "") {
+        checkbox.checked = true;
+    } else {
+        checkbox.checked = false;
+    }
+});
+</script>
+
+
+
+</body>
+</html>
 
 
 
