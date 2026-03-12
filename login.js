@@ -1,100 +1,131 @@
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { auth } from "./firebase-config.js";
 
-let attempts = 0;
-let maxAttempts = 3;
-let lockSeconds = 300;
-let locked = false;
+const maxAttempts = 5;
+const lockSeconds = 10;
 
 const form = document.getElementById("loginForm");
 const loginBtn = document.getElementById("loginBtn");
 
+// get stored attempts
+let attempts = parseInt(localStorage.getItem("loginAttempts")) || 0;
+
+// check lock on page load
+checkLock();
+
 form.addEventListener("submit", function(e){
 e.preventDefault();
 
-if(locked){
-showNotification("⚠ Login temporarily locked. Please wait.", "error");
+if(isLocked()){
+showNotification("⚠ Login locked. Please wait.","error");
 return;
 }
 
-const username = document.getElementById("username").value;
+const username = document.getElementById("username").value.trim();
 const password = document.getElementById("password").value;
 
 const email = username + "@cswdo-binan.com";
 
 signInWithEmailAndPassword(auth,email,password)
 
-.then((userCredential)=>{
+.then(()=>{
 
+// LOGIN SUCCESS
 attempts = 0;
 
-showNotification("✅ Login Successful!", "success");
+localStorage.removeItem("loginAttempts");
+localStorage.removeItem("lockUntil");
+
+showNotification("✅ Login successful","success");
 
 setTimeout(()=>{
 window.location.href="table.html";
-},1500);
+},1000);
 
 })
 
-.catch((error)=>{
+.catch(()=>{
 
+// LOGIN FAILED
 attempts++;
+
+localStorage.setItem("loginAttempts", attempts);
 
 let remaining = maxAttempts - attempts;
 
-if(remaining > 0){
-
-showNotification("❌ Wrong password. Attempts remaining: " + remaining,"error");
-
-}else{
-
+if(attempts >= maxAttempts){
 lockLogin();
-
+}else{
+showNotification("❌ Wrong password. Attempts remaining: " + remaining,"error");
 }
 
 });
 
 });
 
-
 function lockLogin(){
 
-locked = true;
+const lockUntil = Date.now() + lockSeconds * 1000;
 
-let countdown = lockSeconds;
+localStorage.setItem("lockUntil",lockUntil);
+
+startCountdown(lockUntil);
+
+showNotification("🔒 Too many failed attempts. Locked for 10 seconds.","error");
+
+}
+
+function isLocked(){
+
+const lockUntil = localStorage.getItem("lockUntil");
+
+if(!lockUntil) return false;
+
+return Date.now() < lockUntil;
+
+}
+
+function checkLock(){
+
+const lockUntil = localStorage.getItem("lockUntil");
+
+if(lockUntil && Date.now() < lockUntil){
+startCountdown(lockUntil);
+}
+
+}
+
+function startCountdown(lockUntil){
 
 loginBtn.disabled = true;
 
-loginBtn.innerText = "Locked (" + countdown + "s)";
-
-showNotification("🔒 Too many failed attempts. Login locked.","error");
-
 const timer = setInterval(()=>{
 
-countdown--;
+let remaining = Math.ceil((lockUntil - Date.now())/1000);
 
-loginBtn.innerText = "Locked (" + countdown + "s)";
-
-if(countdown <= 0){
+if(remaining <= 0){
 
 clearInterval(timer);
 
-locked = false;
-
-attempts = 0;
-
 loginBtn.disabled = false;
-
 loginBtn.innerText = "Login";
 
-showNotification("✅ You can try logging in again.","success");
+// RESET EVERYTHING
+localStorage.removeItem("lockUntil");
+localStorage.removeItem("loginAttempts");
+attempts = 0;
+
+showNotification("✅ Login unlocked. You can try again.","success");
+
+}else{
+
+loginBtn.innerText = "Locked (" + remaining + "s)";
 
 }
 
 },1000);
 
 }
-
 
 function showNotification(message,type){
 
@@ -111,13 +142,12 @@ notif.style.color = "white";
 notif.style.fontWeight = "bold";
 notif.style.zIndex = "9999";
 notif.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
-notif.style.fontSize = "14px";
 
-if(type==="error"){
+if(type === "error"){
 notif.style.background = "#e74c3c";
 }
 
-if(type==="success"){
+if(type === "success"){
 notif.style.background = "#2ecc71";
 }
 
