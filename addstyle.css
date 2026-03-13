@@ -9,7 +9,7 @@ body{
 
 /* ===== HEADER ===== */
 .header{
-    background:#8e6f8f;
+    background:#a68cb0;
     color:white;
     display:flex;
     align-items:center;
@@ -80,14 +80,43 @@ body{
 }
 
 
+/*back button*/
+.back-button{
+    position: absolute;
+    top: 90px;
+    left: 20px;
+}
+
+.back-button a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #8c6d8c;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    color: #8c6d8c;
+    background: white;
+    transition: 0.2s;
+}
+
+.back-button a:hover{
+    background: #8c6d8c;
+    color: white;
+}
+
+
 /* ===== MAIN CONTAINER ===== */
 .container{
-    margin-top:90px;
+    margin-top:130px;
     padding:20px;
     padding-bottom:120px; /* space para hindi matakpan ng footer */
     height:calc(100vh - 90px);
     overflow-y:auto;
     background:white;
+    
 }
 
 /* ===== INFO SECTION ===== */

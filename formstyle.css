@@ -8,7 +8,7 @@ body{
 
 /* ===== HEADER ===== */
 .header{
-    background-color:#8e6f8f;
+    background-color:#a68cb0;
     color:white;
     display:flex;
     align-items:center;
@@ -33,6 +33,40 @@ body{
     flex:1;
     text-align:center;
 }
+
+
+
+/*back button*/
+.back-button{
+    position: absolute;
+    top: 90px;
+    left: 20px;
+}
+
+
+.back-button a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #8c6d8c;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    color: #8c6d8c;
+    background: white;
+    transition: 0.2s;
+}
+
+
+.back-button a:hover{
+    background: #8c6d8c;
+    color: white;
+}
+
+
+
 
 
 /* ===== INPUT LINE ===== */

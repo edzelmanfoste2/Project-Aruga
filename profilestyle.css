@@ -8,7 +8,7 @@ body{
 
 /* ===== HEADER ===== */
 .header{
-    background:#8e6f8f;
+    background:#a68cb0;
     color:white;
     display:flex;
     align-items:center;
@@ -42,6 +42,41 @@ body{
     transform:translateX(-50%);
     font-weight:bold;
 }
+
+
+
+
+/*back button*/
+.back-button{
+    position: absolute;
+    top: 90px;
+    left: 20px;
+}
+
+
+.back-button a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #8c6d8c;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    color: #8c6d8c;
+    background: white;
+    transition: 0.2s;
+}
+
+
+.back-button a:hover{
+    background: #8c6d8c;
+    color: white;
+}
+
+
+
 
 
 /* ===== DROPDOWN ===== */
@@ -423,3 +458,27 @@ table input:focus{
         .modal-btn.no{
             background:#bbb;
         }
+
+
+
+/* ===== NEXT BUTTON ===== */
+.next-container{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    margin-top:20px;
+}
+
+.next-btn{
+    background:#6cc04a;
+    color:white;
+    border:none;
+    padding:10px 30px;
+    border-radius:25px;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.next-btn:hover{
+    background:#5aa73d;
+}
