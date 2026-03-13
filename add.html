@@ -20,29 +20,16 @@
 
         <div id="dropdownMenu" class="dropdown-content">
             <a href="#">Profile</a>
-            <a href="#" id="logoutBtn" class="logout">Logout</a>
+            <a href="#" class="logout">Logout</a>
         </div>
     </div>
 
-</div>
-
-
-        <!-- Logout Confirmation Modal -->
-<div id="logoutModal" class="modal-overlay">
-    <div class="modal-box">
-        <p>Are you sure you want to logout?</p>
-        <div class="modal-buttons">
-            <button id="confirmLogout" class="modal-btn yes">YES</button>
-            <button id="cancelLogout" class="modal-btn no">NO</button>
-        </div>
-    </div>
 </div>
 
 
 <div class="container">
 <div class="container-right">
-            
-           
+          
         </div>
 
     <!-- TOP ROW -->
@@ -361,12 +348,14 @@
 
 
 </table>
-
-
-
+<div class="next-container">
+<a href="form.html">
+<button class="next-btn">NEXT</button>
+</a>
 </div>
 
-<!-- Yung sa dropdown -->
+
+
 <script>
 function toggleMenu() {
     var menu = document.getElementById("dropdownMenu");
@@ -379,38 +368,42 @@ function toggleMenu() {
 }
 </script>
 
-
 <script>
 
-
-
-// LOGOUT MODAL
-    const logoutBtn = document.getElementById("logoutBtn");
-    const logoutModal = document.getElementById("logoutModal");
-    const confirmLogout = document.getElementById("confirmLogout");
-    const cancelLogout = document.getElementById("cancelLogout");
-
-    // Show popup
-    logoutBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        logoutModal.classList.add("show");
+function saveData(){
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(input=>{
+        localStorage.setItem(input.id, input.value);
     });
+    alert("Record Updated Successfully!");
+}
 
-    // YES → go to login.html
-    confirmLogout.addEventListener("click", function(){
-        window.location.href = "login.html";
+window.onload = function(){
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(input=>{
+        input.value = localStorage.getItem(input.id) || "";
     });
+}
 
-    // NO → close popup
-    cancelLogout.addEventListener("click", function(){
-        logoutModal.classList.remove("show");
-    });
+function openModal(){
+    document.getElementById("deleteModal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("deleteModal").style.display="none";
+}
+
+function confirmDelete(){
+    localStorage.clear();
+    alert("Record Deleted Successfully!");
+    location.reload();
+}
+
 </script>
 
 
-<a href="form.html">
-    <button class="submit-btn">NEXT</button>
-</a>
+
+
 
 <footer class="footer">
     <p>2026 CSWDO - Biñan City</p>
