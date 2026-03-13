@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSWDO - Binan City Database</title>
+
+<link rel="stylesheet" href="preview.css">
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+<header class="header">
+
+<div class="header-left">
+<div class="logo-box">
+<img src="images.png" alt="Logo" onerror="this.style.display='none'">
+</div>
+<span class="header-title"><b>CSWDO - Binan City</b></span>
+</div>
+
+<div class="dropdown">
+<button class="btn" style="color:white;background:none;">Username ▼</button>
+
+<div class="dropdown-content user-dropdown">
+<a href="#">Profile</a>
+<a href="#" style="color:red;border-top:1px solid #eee;">Logout</a>
+</div>
+
+</div>
+
+</header>
+
+<div class="action-bar">
+
+<button class="btn-back" onclick="window.location.href='table.html'">
+    <img src="back.png" alt="backbutton">
+</button>
+
+<div class="dropdown">
+<button class="btn btn-paper" onclick="myFunction()">A4 Paper</button>
+
+<div class="paper-choice-dropdown" id="myDropdown">
+<a>A4 Paper</a>
+<a>Legal Paper</a>
+<a>Letter Paper</a>
+</div>
+</div>
+
+<button class="btn btn-print">Print Report</button>
+
+</div>
+
+
+<div class="main-paper-container">
+
+
+<div class="Analytics-paper-container">
+
+<div class="Analytics-paper">
+
+
+<div class="table-area">
+
+<div class="table-title" id="tableTitle">
+Summary of Informations (Showing 1-10 of 200)
+</div>
+
+
+<table>
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Birthday</th>
+<th>Sex</th>
+<th>Contact Number</th>
+<th>Address</th>
+<th>Religion</th>
+<th>IP Membership</th>
+<th>Disability / Special Needs</th>
+<th>Critical Illness</th>
+</tr>
+
+</thead>
+
+
+<tbody id="dataTable">
+
+<tr>
+<td>Dela Cruz, Juan</td>
+<td>05/12/1990</td>
+<td>Male</td>
+<td>09123456789</td>
+<td>San Vicente, Biñan</td>
+<td>Roman Catholic</td>
+<td>No</td>
+<td>None</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td>Santos, Maria</td>
+<td>11/22/1988</td>
+<td>Female</td>
+<td>09171234567</td>
+<td>De La Paz, Biñan</td>
+<td>Roman Catholic</td>
+<td>No</td>
+<td>Hearing Impairment</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td>Reyes, Ricardo</td>
+<td>01/30/1995</td>
+<td>Male</td>
+<td>09229876543</td>
+<td>Malaban, Biñan</td>
+<td>Iglesia ni Cristo</td>
+<td>No</td>
+<td>None</td>
+<td>Asthma</td>
+</tr>
+
+<tr>
+<td>Bautista, Ana</td>
+<td>03/15/1992</td>
+<td>Female</td>
+<td>09331112223</td>
+<td>Canlalay, Biñan</td>
+<td>Roman Catholic</td>
+<td>Yes</td>
+<td>None</td>
+<td>Diabetes</td>
+</tr>
+
+<tr>
+<td>Garcia, Pedro</td>
+<td>07/04/1985</td>
+<td>Male</td>
+<td>09445556667</td>
+<td>Poblacion, Biñan</td>
+<td>Roman Catholic</td>
+<td>No</td>
+<td>Physical Disability</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td>Aquino, Lito</td>
+<td>12/25/1993</td>
+<td>Male</td>
+<td>09554443332</td>
+<td>San Jose, Biñan</td>
+<td>Born Again Christian</td>
+<td>No</td>
+<td>None</td>
+<td>Hypertension</td>
+</tr>
+
+<tr>
+<td>Mendoza, Elena</td>
+<td>09/09/1991</td>
+<td>Female</td>
+<td>09667778889</td>
+<td>Platero, Biñan</td>
+<td>Roman Catholic</td>
+<td>No</td>
+<td>Visual Impairment</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td>Cruz, Francisco</td>
+<td>02/14/1987</td>
+<td>Male</td>
+<td>09778889990</td>
+<td>Sto. Niño, Biñan</td>
+<td>Roman Catholic</td>
+<td>No</td>
+<td>None</td>
+<td>Heart Disease</td>
+</tr>
+
+<tr>
+<td>Lopez, Gina</td>
+<td>06/18/1994</td>
+<td>Female</td>
+<td>09880001112</td>
+<td>Zapote, Biñan</td>
+<td>Seventh-day Adventist</td>
+<td>No</td>
+<td>None</td>
+<td>None</td>
+</tr>
+
+<tr>
+<td>Mercado, Jose</td>
+<td>10/31/1989</td>
+<td>Male</td>
+<td>09992223334</td>
+<td>Langkiwa, Biñan</td>
+<td>Roman Catholic</td>
+<td>Yes</td>
+<td>None</td>
+<td>Kidney Disease</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+</div>
+</div>
+
+
+
+
+<script src="preview.js"></script>
+
+</body>
+</html>

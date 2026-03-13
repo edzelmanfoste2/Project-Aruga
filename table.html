@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSWDO - Binan City · Collapsible Side Menu</title>
+
+<link rel="stylesheet" href="table.css">
+
+</head>
+<body>
+
+<div class="page-container">
+    
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-box">
+                <img src="images.png" alt="Logo" onerror="this.style.display='none'">
+            </div>
+            <span class="header-title"><b>CSWDO - Biñan City</b></span>
+        </div>
+        
+        <div class="dropdown" id="userDropdown">
+            <button class="btn" id="userBtn" style="color:#333; background:none;">Username &#9662;</button>
+            <div class="dropdown-content user-dropdown" id="userPanel">
+                <a href="#" style="display:block; padding: 8px; text-decoration:none; color:#333;">Profile</a>
+                <a href="#" id="logoutBtn" style="display:block; padding: 8px; text-decoration:none; color:red; border-top: 1px solid #eee;">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal-overlay">
+        <div class="modal-box">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button id="confirmLogout" class="modal-btn yes">YES</button>
+                <button id="cancelLogout" class="modal-btn no">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content with Side Menu -->
+    <div class="main-layout">
+        
+        <!-- Side Menu (collapsible) -->
+    <div class="side-menu collapsed" id="sideMenu">
+    <div class="side-menu-header">
+        <h3>FILTERS</h3>
+    </div>
+            
+            <div class="side-menu-content">
+                <!-- Barangay category -->
+                <div class="filter-category">
+                    <div class="category-header" data-target="barangay-checklist">
+                        <span>Barangay</span>
+                        <span class="category-indicator">▼</span>
+                    </div>
+                    <div class="category-checklist" id="barangay-checklist">
+                        <div class="checkbox-item"><input type="checkbox" value="Biñan" id="brgyA"><label for="brgyA">Biñan</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Bungahan" id="brgyB"><label for="brgyB">Bungahan</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Canlalay" id="brgyC"><label for="brgyC">Canlalay</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Casile" id="brgyD"><label for="brgyD">Casile</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="De La Paz" id="brgyE"><label for="brgyE">De La Paz</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Ganado" id="brgyF"><label for="brgyF">Ganado</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Langkiwa" id="brgyG"><label for="brgyG">Langkiwa</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Loma" id="brgyH"><label for="brgyH">Loma</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Malaban" id="brgyI"><label for="brgyI">Malaban</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Malamig" id="brgyJ"><label for="brgyJ">Malamig</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Mamplasan" id="brgyK"><label for="brgyK">Mamplasan</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Platero" id="brgyL"><label for="brgyL">Platero</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Poblacion" id="brgyM"><label for="brgyM">Poblacion</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="San Antonio" id="brgyN"><label for="brgyN">San Antonio</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="San Francisco" id="brgyO"><label for="brgyO">San Francisco</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="San Jose" id="brgyP"><label for="brgyP">San Jose</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="San Vicente" id="brgyQ"><label for="brgyQ">San Vicente</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Santo Domingo" id="brgyR"><label for="brgyR">Santo Domingo</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Santo Ñino" id="brgyS"><label for="brgyS">Santo Ñino</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Santo Tomas" id="brgyT"><label for="brgyT">Santo Tomas</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Soro-soro" id="brgyU"><label for="brgyU">Soro-soro</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Timbao" id="brgyV"><label for="brgyV">Timbao</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Tubigan" id="brgyW"><label for="brgyW">Tubigan</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Zapote" id="brgyX"><label for="brgyX">Zapote</label></div>
+                    </div>
+                </div>
+
+                <!-- Gender category -->
+                <div class="filter-category">
+                    <div class="category-header" data-target="gender-checklist">
+                        <span>Gender</span>
+                        <span class="category-indicator">▼</span>
+                    </div>
+                    <div class="category-checklist" id="gender-checklist">
+                        <div class="checkbox-item"><input type="checkbox" value="Female" id="female"><label for="female">Female</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Male" id="male"><label for="male">Male</label></div>
+                    </div>
+                </div>
+
+                <!-- Religion category -->
+                <div class="filter-category">
+                    <div class="category-header" data-target="religion-checklist">
+                        <span>Religion</span>
+                        <span class="category-indicator">▼</span>
+                    </div>
+                    <div class="category-checklist" id="religion-checklist">
+                        <div class="checkbox-item"><input type="checkbox" value="None" id="relNone1"><label for="relNone1">None</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Aglipay" id="relAglipay"><label for="relAglipay">Aglipay</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Roman Catholic" id="relRC"><label for="relRC">Roman Catholic</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Seventh Day Adventist" id="relSDA"><label for="relSDA">Seventh Day Adventist</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Islam" id="relIslam"><label for="relIslam">Islam</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Bible Baptist Church" id="relBible"><label for="relBible">Bible Baptist Church</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Iglesia ni Cristo" id="relINC"><label for="relINC">Iglesia ni Cristo</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Jehovah's Witness" id="relJehovahs"><label for="relJehovahs">Jehovah's Witness</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="United Methodists Church" id="relUnited"><label for="relUnited">United Methodists Church</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Tribal Religions" id="relTribal"><label for="relTribal">Tribal Religions</label></div>
+                        <div class="others-row">
+                            <input type="text" placeholder="others:" id="relOthersInput">
+                            <button class="btn-add-others" id="addReligionBtn">➕</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IP Membership category -->
+                <div class="filter-category">
+                    <div class="category-header" data-target="ipmembership-checklist">
+                        <span>IP Membership</span>
+                        <span class="category-indicator">▼</span>
+                    </div>
+                    <div class="category-checklist" id="ipmembership-checklist">
+                        <div class="checkbox-item"><input type="checkbox" value="Non-IP" id="relNone2"><label for="relNone2">Non-IP</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Aeta" id="aeta"><label for="aeta">Aeta</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Ati" id="ati"><label for="ati">Ati</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Badjao" id="badjao"><label for="badjao">Badjao</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Bago" id="bago"><label for="bago">Bago</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Batak" id="batak"><label for="batak">Batak</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Bukidnon" id="bukidnon"><label for="bukidnon">Bukidnon</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="B'laan" id="blaan"><label for="blaan">B'laan</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Cimaron" id="cimaron"><label for="cimaron">Cimaron</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Cayonen" id="cayonen"><label for="cayonen">Cayonen</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Dumagat" id="dumagat"><label for="dumagat">Dumagat</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Ibaloi" id="ibaloi"><label for="ibaloi">Ibaloi</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Ibanag" id="ibanag"><label for="ibanag">Ibanag</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Itom" id="itom"><label for="itom">Itom</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Kankanaey" id="kankanaey"><label for="kankanaey">Kankanaey</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Mandaya" id="mandaya"><label for="mandaya">Mandaya</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Mangyan" id="mangyan"><label for="mangyan">Mangyan</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Manobo" id="manobo"><label for="manobo">Manobo</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Palawano" id="palawano"><label for="palawano">Palawano</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Pullon" id="pullon"><label for="pullon">Pullon</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Subanen" id="subanen"><label for="subanen">Subanen</label></div>
+                        <div class="others-row">
+                            <input type="text" placeholder="others:" id="ipOthersInput">
+                            <button class="btn-add-others" id="addIPBtn">➕</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highest Educational Attainment category -->
+                <div class="filter-category">
+                    <div class="category-header" data-target="educational-checklist">
+                        <span>Highest Educational Attainment</span>
+                        <span class="category-indicator">▼</span>
+                    </div>
+                    <div class="category-checklist" id="educational-checklist">
+                        <div class="checkbox-item"><input type="checkbox" value="Without Formal Education" id="without"><label for="without">Without Formal Education</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Elementary" id="elementary"><label for="elementary">Elementary</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Elementary Graduate" id="elemgrad"><label for="elemgrad">Elementary Graduate</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="High School" id="highschool"><label for="highschool">High School</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="High School Graduate" id="hsgrad"><label for="hsgrad">High School Graduate</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Vocational Course" id="vocational"><label for="vocational">Vocational Course</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Voc. Course Graduate" id="vocgrad"><label for="vocgrad">Voc. Course Graduate</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="College" id="college"><label for="college">College</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="College Graduate" id="collegegrad"><label for="collegegrad">College Graduate</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Post College Degree" id="postcollege"><label for="postcollege">Post College Degree</label></div>
+                    </div>
+                </div>
+
+                <!-- Disability category -->
+                <div class="filter-category">
+                    <div class="category-header" data-target="disability-checklist">
+                        <span>Disability/Special Needs</span>
+                        <span class="category-indicator">▼</span>
+                    </div>
+                    <div class="category-checklist" id="disability-checklist">
+                        <div class="checkbox-item"><input type="checkbox" value="None" id="relNone3"><label for="relNone3">None</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Physical" id="physical"><label for="physical">Physical</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Intellectual" id="intellectual"><label for="intellectual">Intellectual</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Learning" id="learning"><label for="learning">Learning</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Visual" id="visual"><label for="visual">Visual</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Mental" id="mental"><label for="mental">Mental</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Psychosocial" id="psychosocial"><label for="psychosocial">Psychosocial</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Deaf/Hard of Hearing" id="deaf"><label for="deaf">Deaf/Hard of Hearing</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Speech and Language impairment" id="speech"><label for="speech">Speech and Language impairment</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Cancer" id="cancer"><label for="cancer">Cancer</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Rare Disease" id="raredisease"><label for="raredisease">Rare Disease</label></div>
+                    </div>
+                </div>
+
+                <!-- Critical Illness category -->
+                <div class="filter-category">
+                    <div class="category-header" data-target="illness-checklist">
+                        <span>Critical Illness</span>
+                        <span class="category-indicator">▼</span>
+                    </div>
+                    <div class="category-checklist" id="illness-checklist">
+                        <div class="checkbox-item"><input type="checkbox" value="None" id="illNone"><label for="illNone">None</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Cancer" id="cancer1"><label for="cancer1">Cancer</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Cardio-vascular Disease" id="cardiov"><label for="cardiov">Cardio-vascular Disease</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Paralysis" id="paralysis"><label for="paralysis">Paralysis</label></div>
+                        <div class="checkbox-item"><input type="checkbox" value="Organ Failure" id="organ"><label for="organ">Organ Failure</label></div>
+                        <div class="others-row">
+                            <input type="text" placeholder="others:" id="illOthersInput">
+                            <button class="btn-add-others" id="addIllBtn">➕</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- filter footer -->
+                <div class="filter-footer">
+                    <button class="btn-clear-all" id="clearAllBtn">Clear All</button>
+                    <button class="btn-apply" id="applyFilterBtn">Apply</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content" id="mainContent">
+            <div class="action-bar">
+                <button class="btn btn-filter" id="filterBtn">☰ FILTER</button>
+
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" class="search-input" placeholder="*FirstName / *LastName / *Barangay">
+                    <div id="clearBtn" class="clear-search" title="Clear Search" onclick="clearSearch()">✕</div>
+                </div>
+                
+                <button class="btn btn-search" onclick="filterTable()">Search</button>
+                <button class="btn btn-add" onclick="window.location.href='form.html'">Add</button>
+                <button class="btn btn-summary" onclick="window.location.href='analytics.html'">Summary</button>
+            </div>
+
+            <div class="table-area">
+                <div class="table-title" id="tableTitle">Summary of Informations (Showing 1-10 of 200)</div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                            <th>Sex</th>
+                            <th>Contact Number</th>
+                            <th>Address</th>
+                            <th>Religion</th>
+                            <th>IP Membership</th>
+                            <th>Disability / Special Needs</th>
+                            <th>Critical Illness</th>
+                            <th style="width:180px">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="dataTable">
+                        <!-- Your table rows here (same as before) -->
+                        <tr>
+                            <td>Dela Cruz, Juan</td>
+                            <td>05/12/1990</td>
+                            <td>Male</td>
+                            <td>09123456789</td>
+                            <td>San Vicente, Biñan</td>
+                            <td>Roman Catholic</td>
+                            <td>No</td>
+                            <td>None</td>
+                            <td>None</td>
+                            <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                        </tr>
+                        <tr>
+                    <td>Santos, Maria</td>
+                    <td>11/22/1988</td>
+                    <td>Female</td>
+                    <td>09171234567</td>
+                    <td>De La Paz, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>Hearing Impairment</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Reyes, Ricardo</td>
+                    <td>01/30/1995</td>
+                    <td>Male</td>
+                    <td>09229876543</td>
+                    <td>Malaban, Biñan</td>
+                    <td>Iglesia ni Cristo</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>Asthma</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Bautista, Ana</td>
+                    <td>03/15/1992</td>
+                    <td>Female</td>
+                    <td>09331112223</td>
+                    <td>Canlalay, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>Yes</td>
+                    <td>None</td>
+                    <td>Diabetes</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Garcia, Pedro</td>
+                    <td>07/04/1985</td>
+                    <td>Male</td>
+                    <td>09445556667</td>
+                    <td>Poblacion, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>Physical Disability</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Aquino, Lito</td>
+                    <td>12/25/1993</td>
+                    <td>Male</td>
+                    <td>09554443332</td>
+                    <td>San Jose, Biñan</td>
+                    <td>Born Again Christian</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>Hypertension</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Mendoza, Elena</td>
+                    <td>09/09/1991</td>
+                    <td>Female</td>
+                    <td>09667778889</td>
+                    <td>Platero, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>Visual Impairment</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Cruz, Francisco</td>
+                    <td>02/14/1987</td>
+                    <td>Male</td>
+                    <td>09778889990</td>
+                    <td>Sto. Niño, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>Heart Disease</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Lopez, Gina</td>
+                    <td>06/18/1994</td>
+                    <td>Female</td>
+                    <td>09880001112</td>
+                    <td>Zapote, Biñan</td>
+                    <td>Seventh-day Adventist</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Mercado, Jose</td>
+                    <td>10/31/1989</td>
+                    <td>Male</td>
+                    <td>09992223334</td>
+                    <td>Langkiwa, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>Yes</td>
+                    <td>None</td>
+                    <td>Kidney Disease</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Navarro, Luis</td>
+                    <td>04/10/1990</td>
+                    <td>Male</td>
+                    <td>09180011223</td>
+                    <td>Dela Paz, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Castillo, Andrea</td>
+                    <td>08/21/1996</td>
+                    <td>Female</td>
+                    <td>09182334455</td>
+                    <td>San Antonio, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>Asthma</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Domingo, Carlo</td>
+                    <td>02/02/1993</td>
+                    <td>Male</td>
+                    <td>09223334444</td>
+                    <td>Canlalay, Biñan</td>
+                    <td>Born Again Christian</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Torres, Melissa</td>
+                    <td>06/17/1991</td>
+                    <td>Female</td>
+                    <td>09334445566</td>
+                    <td>Sto. Niño, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>Visual Impairment</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Ramos, Hector</td>
+                    <td>12/01/1986</td>
+                    <td>Male</td>
+                    <td>09456667788</td>
+                    <td>Langkiwa, Biñan</td>
+                    <td>Iglesia ni Cristo</td>
+                    <td>Yes</td>
+                    <td>None</td>
+                    <td>Hypertension</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Villanueva, Grace</td>
+                    <td>09/13/1994</td>
+                    <td>Female</td>
+                    <td>09545556677</td>
+                    <td>San Jose, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>Diabetes</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Salazar, Mark</td>
+                    <td>03/29/1997</td>
+                    <td>Male</td>
+                    <td>09678889900</td>
+                    <td>Poblacion, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>Hearing Impairment</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Fernandez, Julia</td>
+                    <td>11/11/1992</td>
+                    <td>Female</td>
+                    <td>09790001122</td>
+                    <td>Zapote, Biñan</td>
+                    <td>Seventh-day Adventist</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Gutierrez, Paolo</td>
+                    <td>01/05/1998</td>
+                    <td>Male</td>
+                    <td>09881112233</td>
+                    <td>Platero, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>Asthma</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                <tr>
+                    <td>Valdez, Katrina</td>
+                    <td>07/23/1995</td>
+                    <td>Female</td>
+                    <td>09993334455</td>
+                    <td>Malaban, Biñan</td>
+                    <td>Roman Catholic</td>
+                    <td>No</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td><a href="profile.html" class="check-btn">Check Information</a></td>
+                </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <footer class="footer-controls">
+                <button class="btn-print" onclick="window.location.href='preview.html'">
+                PRINT REPORT
+                </button>
+                <div class="pagination">
+                    <button class="pg-btn" onclick="prevPage()">&lt;</button>
+                    <button class="pg-btn" onclick="goToPage(1)">1</button>
+                    <button class="pg-btn" onclick="goToPage(2)">2</button>
+                    <button class="pg-btn" onclick="nextPage()">&gt;</button>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<script src="table.js"></script>
+
+</body>
+</html>

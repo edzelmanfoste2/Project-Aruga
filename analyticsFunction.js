@@ -35,3 +35,25 @@ function clearCheckListFunction() {
         checkbox.checked = false;
     });
 }
+
+    // LOGOUT MODAL
+    const logoutBtn = document.getElementById("logoutBtn");
+    const logoutModal = document.getElementById("logoutModal");
+    const confirmLogout = document.getElementById("confirmLogout");
+    const cancelLogout = document.getElementById("cancelLogout");
+
+    // Show popup
+    logoutBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        logoutModal.classList.add("show");
+    });
+
+    // YES → go to login.html
+    confirmLogout.addEventListener("click", function(){
+        window.location.href = "login.html";
+    });
+
+    // NO → close popup
+    cancelLogout.addEventListener("click", function(){
+        logoutModal.classList.remove("show");
+    });
