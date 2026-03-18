@@ -76,7 +76,9 @@ body{
 }
 
 
-
+.print-btn{
+    background:#2196F3; /* blue */
+}
 
 
 /* ===== DROPDOWN ===== */
@@ -481,4 +483,39 @@ table input:focus{
 
 .next-btn:hover{
     background:#5aa73d;
+}
+
+@media print {
+
+    /* Tanggal header, buttons, footer, back button */
+    .header,
+    .container-right,
+    .back-button,
+    .next-container,
+    .footer {
+        display: none !important;
+    }
+
+    /*tanggal scrollbar */
+    body, .container {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+
+    .container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+   
+    input {
+        border: none !important;
+        outline: none !important;
+    }
+
+    input:focus {
+        background: transparent !important;
+    }
 }
